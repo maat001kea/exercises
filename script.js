@@ -1,10 +1,36 @@
-function beregnPrisMedMoms(beloeb, moms = 25) {
-  // formel
-  const total = beloeb * (1 + moms / 100);
+window.addEventListener("load", function() {
 
-  console.log(`Beløbet med ${moms}% moms: ${total}`);
-}
-//For at teste, hvordan funktion virker, kaldte jeg den med forskellige argumenter:
+  let randomNumber = Math.floor(Math.random() * 100);
 
-beregnPrisMedMoms(100); // Bruger default moms = 25%
-beregnPrisMedMoms(200, 10); // Moms = 10%
+  const guessInput = document.getElementById("guessInput");
+  const guessBtn = document.getElementById("guessBtn");
+  const feedback = document.getElementById("feedback");
+
+  guessBtn.addEventListener("click", function() {
+
+    let userGuess = parseInt(guessInput.value, 10);
+
+    // Tjek for gyldigt input
+    if (isNaN(userGuess)) {
+      feedback.textContent = "Du skal indtaste et gyldigt tal!";
+      return;
+    }
+    if (userGuess < 0 || userGuess > 100) {
+      feedback.textContent = "Tallet skal være mellem 0 og 100.";
+      return;
+    }
+
+    if (userGuess < randomNumber) {
+      feedback.textContent = "For lavt! Prøv igen.";
+    } else if (userGuess > randomNumber) {
+      feedback.textContent = "For højt! Prøv igen.";
+    } else {
+      
+      feedback.textContent = "Du gættede rigtigt! Tillykke!";
+    }
+
+    // Ryd inputfeltet og sæt fokus til det igen
+    guessInput.value = "";
+    guessInput.focus();
+  });
+});
