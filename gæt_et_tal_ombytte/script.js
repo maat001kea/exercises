@@ -7,43 +7,43 @@ function startGame() {
   min = 0;
   max = 100;
   attempts = 0;
-  document.getElementById("tooHigh").disabled = false;
-  document.getElementById("tooLow").disabled = false;
-  document.getElementById("correct").disabled = false;
+  document.getElementById("forHoej").disabled = false;
+  document.getElementById("forLav").disabled = false;
+  document.getElementById("korrekt").disabled = false;
   document.getElementById("result").textContent = "";
-  makeGuess();
+  laveEtGaet();
 }
 
 // Beregner et nyt gæt ved hjælp af binær søgning
-function makeGuess() {
+function laveEtGaet() {
   guess = Math.floor((min + max) / 2);
   document.getElementById("guess").textContent = "Computeren gætter: " + guess;
   attempts++;
 }
 
 // Opdaterer 'max' hvis gættet er for højt
-function tooHigh() {
+function forHoej() {
   max = guess - 1;
-  makeGuess();
+  laveEtGaet();
 }
 
 // Opdaterer 'min' hvis gættet er for lavt
-function tooLow() {
+function forLav() {
   min = guess + 1;
-  makeGuess();
+  laveEtGaet();
 }
 
 // Afslutter spillet og viser antal forsøg
-function correctGuess() {
+function korrektGaet() {
   document.getElementById("result").textContent =
     "Computeren gættede rigtigt på " + attempts + " forsøg!";
-  document.getElementById("tooHigh").disabled = true;
-  document.getElementById("tooLow").disabled = true;
-  document.getElementById("correct").disabled = true;
+  document.getElementById("forHoej").disabled = true;
+  document.getElementById("forLav").disabled = true;
+  document.getElementById("korrekt").disabled = true;
 }
 
 // Tilføjer event listeners til knapperne
 document.getElementById("startBtn").addEventListener("click", startGame);
-document.getElementById("tooHigh").addEventListener("click", tooHigh);
-document.getElementById("tooLow").addEventListener("click", tooLow);
-document.getElementById("correct").addEventListener("click", correctGuess);
+document.getElementById("forHoej").addEventListener("click", forHoej);
+document.getElementById("forLav").addEventListener("click", forLav);
+document.getElementById("korrekt").addEventListener("click", korrektGaet);
