@@ -1,0 +1,23 @@
+/* * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui;
+  line-height: 1.5;
+  margin: 0;
+  padding: 2rlh;
+}
+
+ul {
+  display: flex;
+  gap: 0.5%;
+  list-style: none;
+  align-items: flex-end;
+} */
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5%;
+}

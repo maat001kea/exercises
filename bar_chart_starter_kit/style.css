@@ -1,0 +1,48 @@
+/* ul {
+    list-style: none;
+    display: flex;
+    align-items: flex-end;
+    gap: 1ch;
+    block-size: 100px;
+    padding: 0;
+    margin: 0;
+}
+
+li { */
+/* --height: 40; */
+/* inline-size: 3ch;
+    height: calc(var(--height) * 1px);
+    background: color-mix(in hsl, red, green calc(var(--height) * 1%));
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui;
+  line-height: 1.5;
+  margin: 0;
+  padding: 2rlh;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  block-size: 150px;
+  padding: 0;
+  margin: 20px auto;
+  width: 90%;
+  overflow: hidden;
+  border: 1px solid black;
+  background-color: rgb(30, 20, 141);
+}
+
+li {
+  inline-size: 20px;
+  height: calc(var(--height) * 1px);
+  background-color: hsl(calc(var(--height) * 1.2), 80%, 50%);
+  transition: height 0.5s ease;
+}
