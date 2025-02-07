@@ -1,4 +1,4 @@
-const str = "Jack Erick Mansion.";
+const str = "Peter Heronimous Lind";
 
 const firstName = str.substring(str.indexOf(""), str.indexOf(" "));
 console.log(firstName);
