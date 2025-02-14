@@ -1,0 +1,68 @@
+html,
+body {
+  height: 100%; /* Sørger for, at body fylder hele skærmen */
+  margin: 0; /* Fjerner standard-margener */
+  display: flex;
+  flex-direction: column; /* Indholdet arrangeres lodret */
+}
+
+/* LYST TEMA */
+/* Når temaet er "lys", får vi en lys baggrund og mørk tekst */
+body[data-tema="lys"],
+.lys {
+  --header-bg-farve: white; /* Hvid baggrund til header */
+  --tekst-farve: black; /* Sort tekst */
+  --baggrund: #f0f0f0; /* Lys baggrund for hele siden */
+}
+
+/*  MØRKT TEMA */
+/* Når temaet er mørk, får vi en mørk baggrund og lys tekst */
+body[data-tema="mørk"],
+.mørk {
+  --header-bg-farve: #222;
+  --tekst-farve: rgb(249, 251, 249);
+  --baggrund: #111;
+}
+
+/* HAWAII TEMA */
+/* Når temaet er "hawaii", får vi en farverig baggrund og grøn tekst */
+body[data-tema="hawaii"],
+.hawaii {
+  --header-bg-farve: orange;
+  --tekst-farve: green;
+  --baggrund: yellow;
+}
+
+/* GENERELLE STYLES */
+body {
+  background-color: var(
+    --baggrund
+  ); /* Baggrundsfarve baseret på det aktive tema */
+  color: var(--tekst-farve); /* Tekstfarve baseret på det aktive tema */
+  font-family: Arial, sans-serif; /*skrifttype */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Blød overgang ved tema-skift */
+  text-align: center;
+}
+
+/* HEADER  */
+.hoved {
+  background-color: var(--header-bg-farve); /* Headerens baggrundsfarve */
+  color: var(--tekst-farve); /* Headerens tekstfarve */
+}
+.hoved,
+.fod {
+  background-color: var(
+    --header-bg-farve
+  ); /* Samme baggrundsfarve som header */
+  color: var(--tekst-farve); /* Samme tekstfarve */
+  padding: 20px;
+  text-align: center;
+}
+
+/* FOOTER - FAST I BUNDEN */
+.fod {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
