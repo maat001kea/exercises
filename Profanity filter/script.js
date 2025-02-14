@@ -1,41 +1,41 @@
 // Liste med ord der skal erstattes
-const curseWords = [
-  { bad: "var", good: "const" },
-  { bad: "float", good: "grid" },
-  { bad: "marquee", good: "just don't" },
+const forbudteOrd = [
+  { dårlig: "var", god: "const" },
+  { dårlig: "float", god: "grid" },
+  { dårlig: "marquee", god: "just don't" },
 ];
 
 // Hent elementerne fra HTML
-const textElement = document.getElementById("text");
-const replaceButton = document.getElementById("replaceButton");
+const tekstElement = document.getElementById("tekst");
+const erstatKnap = document.getElementById("erstatKnap");
 const infoDialog = document.getElementById("infoDialog");
-const closeDialogButton = document.getElementById("closeDialog");
+const lukDialogKnap = document.getElementById("lukDialog");
 
 // Funktion der erstatter de dårlige ord
-function replaceWords() {
-  let text = textElement.innerHTML;
-  let updated = false; // Flag for at tjekke om vi har ændret noget
+function erstatOrd() {
+  let tekst = tekstElement.innerHTML;
+  let opdateret = false; // Flag for at tjekke om vi har ændret noget
 
-  curseWords.forEach(({ bad, good }) => {
-    let regex = new RegExp(`\\b${bad}\\b`, "gi"); // Matcher hele ordet (ignorerer store/små bogstaver)
-    if (regex.test(text)) {
-      text = text.replace(regex, `<span class="highlight">${good}</span>`);
-      updated = true;
+  forbudteOrd.forEach(({ dårlig, god }) => {
+    let regex = new RegExp(`\\b${dårlig}\\b`, "gi"); // Matcher hele ordet (ignorerer store/små bogstaver)
+    if (regex.test(tekst)) {
+      tekst = tekst.replace(regex, `<span class="highlight">${god}</span>`);
+      opdateret = true;
     }
   });
 
   // Opdater teksten eller vis besked, hvis intet blev ændret
-  if (updated) {
-    textElement.innerHTML = text;
+  if (opdateret) {
+    tekstElement.innerHTML = tekst;
   } else {
     infoDialog.showModal();
   }
 }
 
 // Event listener til knappen
-replaceButton.addEventListener("click", replaceWords);
+erstatKnap.addEventListener("click", erstatOrd);
 
 // Luk dialogen, når der klikkes på "Luk"
-closeDialogButton.addEventListener("click", () => {
+lukDialogKnap.addEventListener("click", () => {
   infoDialog.close();
 });
