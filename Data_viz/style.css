@@ -1,0 +1,52 @@
+/* Generelle styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container styling */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Kønummer styling */
+#queueNumber {
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 20px;
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Animation ved opdatering */
+.grow {
+  transform: scale(1.5);
+}
+
+/* Personale liste styling */
+#personelList {
+  list-style: none;
+  padding: 0;
+}
+
+#personelList li {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+/* Tidsstempel styling */
+.timestamp {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}

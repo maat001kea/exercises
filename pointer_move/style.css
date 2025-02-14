@@ -1,0 +1,20 @@
+/* Definerer en standard farve med CSS variabler */
+:root {
+  --hue: 200; /* Basisfarve */
+  --saturation: 50%; /* Mætning (ændres med musens Y-akse) */
+  --lightness: 50%; /* Lysstyrke (ændres med musens X-akse) */
+}
+
+/* Baggrund skifter farve afhængigt af musens position */
+body {
+  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.1s ease;
+}
